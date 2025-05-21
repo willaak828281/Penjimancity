@@ -62,7 +62,7 @@
 
         /* Game and App Styles */
         .game {
-            width: 200px;
+            width: 300px;
             margin: 20px;
             display: inline-block;
             text-align: center;
@@ -72,35 +72,15 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
         }
 
-        .game img {
+        .game iframe {
             width: 100%;
-            height: auto;
+            height: 300px;
             border-radius: 10px;
         }
 
         .game h3 {
             font-size: 1.1em;
-        }
-
-        .game button {
-            background-color: #00ff00;
-            color: #000;
-            border: none;
-            padding: 10px 15px;
-            cursor: pointer;
-            font-size: 1em;
-            border-radius: 5px;
-            margin-top: 10px;
-        }
-
-        .game button:hover {
-            background-color: #00cc00;
-        }
-
-        .app img {
-            width: 80px;
-            height: 80px;
-            margin-top: 10px;
+            color: #00ff00;
         }
 
         footer {
@@ -148,23 +128,24 @@
         <section id="games" class="content-tab">
             <h2>Unblocked Games</h2>
 
+            <!-- Game 1: 2-Player Game -->
             <div class="game">
-                <img src="https://via.placeholder.com/200x200?text=Flappy+Bird" alt="Flappy Bird">
-                <h3>Flappy Bird</h3>
-                <button onclick="window.open('https://flappybird.io', '_blank')">Play Game</button>
+                <h3>2-Player Game 1</h3>
+                <iframe src="https://dnrweqffuwjtx.cloudfront.net/t/2-player/game1.html" frameborder="0"></iframe>
             </div>
 
+            <!-- Game 2: 2-Player Game -->
             <div class="game">
-                <img src="https://via.placeholder.com/200x200?text=2048" alt="2048">
-                <h3>2048</h3>
-                <button onclick="window.open('https://play2048.co', '_blank')">Play Game</button>
+                <h3>2-Player Game 2</h3>
+                <iframe src="https://dnrweqffuwjtx.cloudfront.net/t/2-player/game2.html" frameborder="0"></iframe>
             </div>
 
+            <!-- Game 3: 2-Player Game -->
             <div class="game">
-                <img src="https://via.placeholder.com/200x200?text=Snake" alt="Snake">
-                <h3>Snake</h3>
-                <button onclick="window.open('https://play.snake.is', '_blank')">Play Game</button>
+                <h3>2-Player Game 3</h3>
+                <iframe src="https://dnrweqffuwjtx.cloudfront.net/t/2-player/game3.html" frameborder="0"></iframe>
             </div>
+
         </section>
 
         <!-- Apps Tab Section -->
@@ -174,31 +155,13 @@
             <div class="app">
                 <h3><a href="https://www.snapchat.com" target="_blank">Snapchat</a></h3>
                 <p>Click to access Snapchat's web version.</p>
-                <!-- Add an image for Snapchat -->
-                <img src="images/snapchat-icon.png" alt="Snapchat">
             </div>
 
             <div class="app">
                 <h3><a href="https://www.tiktok.com" target="_blank">TikTok</a></h3>
                 <p>Click to access TikTok's web version.</p>
-                <!-- Add an image for TikTok -->
-                <img src="images/tiktok-icon.png" alt="TikTok">
             </div>
 
-            <div class="app">
-                <h3>Google Docs Viewer</h3>
-                <iframe src="https://docs.google.com/gview?url=https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf&embedded=true" width="600" height="400"></iframe>
-            </div>
-
-            <div class="app">
-                <h3>Online Calculator</h3>
-                <iframe src="https://www.calculatorsoup.com/calculators/math/basic-calculator.php" width="600" height="400"></iframe>
-            </div>
-
-            <div class="app">
-                <h3>Weather App</h3>
-                <iframe src="https://forecast7.com/en/37d7749d41/sf/" width="600" height="400"></iframe>
-            </div>
         </section>
 
         <!-- Settings Tab Section -->
@@ -229,18 +192,6 @@
                 <li><a href="https://codepen.io/" target="_blank">CodePen - Online code editor</a></li>
                 <li><a href="https://github.com/" target="_blank">GitHub - Version control and collaboration</a></li>
             </ul>
-
-            <h3>Code Snippet</h3>
-            <pre>
-                <code>
-                // Example JavaScript Snippet
-                function greetUser(name) {
-                    return `Hello, ${name}!`;
-                }
-
-                console.log(greetUser("Developer"));
-                </code>
-            </pre>
         </section>
     </main>
 
@@ -267,4 +218,5 @@
     </script>
 </body>
 </html>
+
            
