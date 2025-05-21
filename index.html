@@ -61,7 +61,7 @@
             display: block;
         }
 
-        /* Game and App Styles */
+        /* Game Styles */
         .game {
             width: 300px;
             margin: 20px;
@@ -73,30 +73,62 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
         }
 
-        .game iframe {
-            width: 100%;
-            height: 300px;
-            border-radius: 10px;
-        }
-
         .game h3 {
             font-size: 1.1em;
             color: #00ff00;
         }
 
-        .game button {
-            background-color: #00ff00;
-            color: #111;
-            border: none;
-            padding: 5px 10px;
-            cursor: pointer;
-            margin-top: 10px;
-            font-size: 1.2em;
-            border-radius: 5px;
+        /* Tic-Tac-Toe Game Styles */
+        .tic-tac-toe {
+            display: grid;
+            grid-template-columns: repeat(3, 100px);
+            grid-gap: 5px;
+            margin: 20px 0;
         }
 
-        .game button:hover {
-            background-color: #00cc00;
+        .tic-tac-toe button {
+            width: 100px;
+            height: 100px;
+            font-size: 2em;
+            color: white;
+            background-color: #444;
+            border: 1px solid #00ff00;
+            cursor: pointer;
+        }
+
+        /* Snake Game Styles */
+        #snake-board {
+            width: 300px;
+            height: 300px;
+            background-color: #111;
+            position: relative;
+        }
+
+        #snake {
+            width: 10px;
+            height: 10px;
+            background-color: #00ff00;
+            position: absolute;
+        }
+
+        /* Memory Game Styles */
+        .memory-game {
+            display: grid;
+            grid-template-columns: repeat(4, 100px);
+            grid-gap: 10px;
+            margin: 20px 0;
+        }
+
+        .memory-game .card {
+            width: 100px;
+            height: 100px;
+            background-color: #222;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2em;
+            color: #00ff00;
+            cursor: pointer;
         }
 
         footer {
@@ -121,31 +153,6 @@
             z-index: -1;
         }
 
-        .fullscreen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1000;
-            background-color: rgba(0, 0, 0, 0.8);
-            display: none;
-        }
-
-        .fullscreen iframe {
-            width: 100%;
-            height: 100%;
-        }
-
-        .fullscreen button {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background-color: #ff0000;
-            padding: 10px;
-            font-size: 1.5em;
-            border-radius: 5px;
-        }
     </style>
 </head>
 <body>
@@ -157,6 +164,7 @@
         <h1>UA Unblocked Games & Apps</h1>
         <nav>
             <ul>
+                <li><a href="#" class="tab" data-tab="home">Home</a></li>
                 <li><a href="#" class="tab" data-tab="games">Games</a></li>
                 <li><a href="#" class="tab" data-tab="apps">Apps</a></li>
                 <li><a href="#" class="tab" data-tab="settings">Settings</a></li>
@@ -166,29 +174,54 @@
     </header>
 
     <main>
+        <!-- Home Tab Section (Fake Math Website) -->
+        <section id="home" class="content-tab active">
+            <h2>Welcome to Math Mastery</h2>
+            <p>This is your personalized math portal for mastering mathematics at your own pace! Get started by solving problems and tracking your progress.</p>
+        </section>
+
         <!-- Games Tab Section -->
-        <section id="games" class="content-tab active">
+        <section id="games" class="content-tab">
             <h2>Unblocked Games</h2>
 
-            <!-- Game 1: 2-Player Game -->
+            <!-- Tic-Tac-Toe Game -->
             <div class="game">
-                <h3>2-Player Game 1</h3>
-                <iframe src="https://dnrweqffuwjtx.cloudfront.net/t/2-player/game1.html" frameborder="0"></iframe>
-                <button class="fullscreen-btn">Full Screen</button>
+                <h3>Tic-Tac-Toe</h3>
+                <div class="tic-tac-toe" id="tic-tac-toe-board">
+                    <button onclick="playTicTacToe(0)"></button>
+                    <button onclick="playTicTacToe(1)"></button>
+                    <button onclick="playTicTacToe(2)"></button>
+                    <button onclick="playTicTacToe(3)"></button>
+                    <button onclick="playTicTacToe(4)"></button>
+                    <button onclick="playTicTacToe(5)"></button>
+                    <button onclick="playTicTacToe(6)"></button>
+                    <button onclick="playTicTacToe(7)"></button>
+                    <button onclick="playTicTacToe(8)"></button>
+                </div>
             </div>
 
-            <!-- Game 2: 2-Player Game -->
+            <!-- Snake Game -->
             <div class="game">
-                <h3>2-Player Game 2</h3>
-                <iframe src="https://dnrweqffuwjtx.cloudfront.net/t/2-player/game2.html" frameborder="0"></iframe>
-                <button class="fullscreen-btn">Full Screen</button>
+                <h3>Snake Game</h3>
+                <div id="snake-board">
+                    <div id="snake"></div>
+                </div>
+                <p>Use arrow keys to control the snake!</p>
             </div>
 
-            <!-- Game 3: 2-Player Game -->
+            <!-- Memory Game -->
             <div class="game">
-                <h3>2-Player Game 3</h3>
-                <iframe src="https://dnrweqffuwjtx.cloudfront.net/t/2-player/game3.html" frameborder="0"></iframe>
-                <button class="fullscreen-btn">Full Screen</button>
+                <h3>Memory Matching</h3>
+                <div class="memory-game" id="memory-game">
+                    <div class="card" onclick="flipCard(this)">1</div>
+                    <div class="card" onclick="flipCard(this)">2</div>
+                    <div class="card" onclick="flipCard(this)">3</div>
+                    <div class="card" onclick="flipCard(this)">4</div>
+                    <div class="card" onclick="flipCard(this)">1</div>
+                    <div class="card" onclick="flipCard(this)">2</div>
+                    <div class="card" onclick="flipCard(this)">3</div>
+                    <div class="card" onclick="flipCard(this)">4</div>
+                </div>
             </div>
 
         </section>
@@ -196,42 +229,24 @@
         <!-- Apps Tab Section -->
         <section id="apps" class="content-tab">
             <h2>Unblocked Apps</h2>
-
             <div class="app">
                 <h3><a href="https://www.snapchat.com" target="_blank">Snapchat</a></h3>
-                <p>Click to access Snapchat's web version.</p>
             </div>
-
             <div class="app">
                 <h3><a href="https://www.tiktok.com" target="_blank">TikTok</a></h3>
-                <p>Click to access TikTok's web version.</p>
             </div>
-
         </section>
 
         <!-- Settings Tab Section -->
         <section id="settings" class="content-tab">
             <h2>Settings</h2>
-
-            <div class="settings-option">
-                <label for="dark-mode-toggle">Enable Dark Mode</label>
-                <input type="checkbox" id="dark-mode-toggle">
-            </div>
-
-            <div class="settings-option">
-                <label for="language-select">Select Language</label>
-                <select id="language-select">
-                    <option value="en">English</option>
-                    <option value="es">Spanish</option>
-                    <option value="fr">French</option>
-                </select>
-            </div>
+            <div class="settings-option"><label for="setting1">Enable Feature 1</label><input type="checkbox" id="setting1"></div>
+            <div class="settings-option"><label for="setting2">Enable Feature 2</label><input type="checkbox" id="setting2"></div>
         </section>
 
         <!-- Developer Tab Section -->
         <section id="dev" class="content-tab">
             <h2>Developer Tools</h2>
-            <p>Useful resources for developers:</p>
             <ul>
                 <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">JavaScript Documentation (MDN)</a></li>
                 <li><a href="https://codepen.io/" target="_blank">CodePen - Online code editor</a></li>
@@ -244,32 +259,55 @@
         <p>&copy; 2025 UA Unblocked Games</p>
     </footer>
 
-    <!-- Fullscreen Modal for Games -->
-    <div class="fullscreen" id="fullscreen-modal">
-        <button id="close-fullscreen-btn">Close</button>
-        <iframe id="fullscreen-iframe" src="" frameborder="0"></iframe>
-    </div>
-
     <script>
-        // JavaScript for fullscreen functionality
-        const fullscreenBtns = document.querySelectorAll('.fullscreen-btn');
-        const fullscreenModal = document.getElementById('fullscreen-modal');
-        const fullscreenIframe = document.getElementById('fullscreen-iframe');
-        const closeFullscreenBtn = document.getElementById('close-fullscreen-btn');
+        // JavaScript for Tic-Tac-Toe
+        let board = ["", "", "", "", "", "", "", "", ""];
+        let currentPlayer = "X";
+        
+        function playTicTacToe(index) {
+            if (board[index] === "") {
+                board[index] = currentPlayer;
+                document.getElementById("tic-tac-toe-board").children[index].innerText = currentPlayer;
+                currentPlayer = (currentPlayer === "X") ? "O" : "X";
+            }
+        }
 
-        fullscreenBtns.forEach((btn, index) => {
-            btn.addEventListener('click', () => {
-                const iframe = btn.previousElementSibling;
-                const gameSrc = iframe.src;
+        // JavaScript for Snake
+        let snake = [{x: 150, y: 150}];
+        let food = {x: 100, y: 100};
+        let gameInterval;
 
-                fullscreenModal.style.display = 'block';
-                fullscreenIframe.src = gameSrc; // Set the iframe to the current game's src
+        function moveSnake() {
+            // Game logic for snake movement and collision detection
+        }
+
+        // JavaScript for Memory Game
+        let flippedCards = [];
+        function flipCard(card) {
+            if (flippedCards.length < 2) {
+                card.style.backgroundColor = "#444";
+                flippedCards.push(card);
+                if (flippedCards.length === 2) {
+                    setTimeout(() => {
+                        if (flippedCards[0].innerText !== flippedCards[1].innerText) {
+                            flippedCards[0].style.backgroundColor = "#222";
+                            flippedCards[1].style.backgroundColor = "#222";
+                        }
+                        flippedCards = [];
+                    }, 1000);
+                }
+            }
+        }
+
+        // Tab switching logic
+        const tabs = document.querySelectorAll('.tab');
+        const sections = document.querySelectorAll('.content-tab');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                sections.forEach(section => section.classList.remove('active'));
+                document.getElementById(tab.getAttribute('data-tab')).classList.add('active');
             });
-        });
-
-        closeFullscreenBtn.addEventListener('click', () => {
-            fullscreenModal.style.display = 'none';
-            fullscreenIframe.src = ''; // Clear the iframe source
         });
     </script>
 </body>
