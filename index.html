@@ -61,10 +61,40 @@
         }
 
         /* Game and App Styles */
-        .game iframe, .app iframe {
+        .game {
+            width: 200px;
+            margin: 20px;
+            display: inline-block;
+            text-align: center;
+            background-color: #222;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .game img {
             width: 100%;
-            height: 400px;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .game h3 {
+            font-size: 1.1em;
+        }
+
+        .game button {
+            background-color: #00ff00;
+            color: #000;
             border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-size: 1em;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .game button:hover {
+            background-color: #00cc00;
         }
 
         .app img {
@@ -119,18 +149,21 @@
             <h2>Unblocked Games</h2>
 
             <div class="game">
+                <img src="https://via.placeholder.com/200x200?text=Flappy+Bird" alt="Flappy Bird">
                 <h3>Flappy Bird</h3>
-                <iframe src="https://flappybird.io" width="400" height="600"></iframe>
+                <button onclick="window.open('https://flappybird.io', '_blank')">Play Game</button>
             </div>
 
             <div class="game">
+                <img src="https://via.placeholder.com/200x200?text=2048" alt="2048">
                 <h3>2048</h3>
-                <iframe src="https://play2048.co" width="400" height="600"></iframe>
+                <button onclick="window.open('https://play2048.co', '_blank')">Play Game</button>
             </div>
 
             <div class="game">
+                <img src="https://via.placeholder.com/200x200?text=Snake" alt="Snake">
                 <h3>Snake</h3>
-                <iframe src="https://play.snake.is" width="400" height="600"></iframe>
+                <button onclick="window.open('https://play.snake.is', '_blank')">Play Game</button>
             </div>
         </section>
 
@@ -142,14 +175,14 @@
                 <h3><a href="https://www.snapchat.com" target="_blank">Snapchat</a></h3>
                 <p>Click to access Snapchat's web version.</p>
                 <!-- Add an image for Snapchat -->
-                <img src="images/snapchat-icon.png" alt="Snapchat" width="100">
+                <img src="images/snapchat-icon.png" alt="Snapchat">
             </div>
 
             <div class="app">
                 <h3><a href="https://www.tiktok.com" target="_blank">TikTok</a></h3>
                 <p>Click to access TikTok's web version.</p>
                 <!-- Add an image for TikTok -->
-                <img src="images/tiktok-icon.png" alt="TikTok" width="100">
+                <img src="images/tiktok-icon.png" alt="TikTok">
             </div>
 
             <div class="app">
@@ -234,3 +267,4 @@
     </script>
 </body>
 </html>
+           
